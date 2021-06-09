@@ -69,5 +69,5 @@ p employee1.first_name
 p employee1.last_name
 p employee1.salary
 p employee1.active
-employee1.active = false  # employee1.active=(false) does the same thing
+employee1.active = false  # Ruby reads this as employee1.active=(false)
 p employee1.active
