@@ -1,7 +1,6 @@
 class Employee
-  attr_reader :first_name, :last_name, :active
-  attr_writer :active
-
+  attr_accessor :first_name, :last_name, :salary, :active
+  
   def initialize(input_options)
     @first_name = input_options[:first_name]
     @last_name = input_options[:last_name]
@@ -27,6 +26,9 @@ class Manager < Employee
   def initialize(input_options)
     super
     @employees = input_options[:employees]
+    # p @employees
+    # p @employees[0]
+    # p @employees[1]
   end
 
   def send_report
@@ -34,8 +36,27 @@ class Manager < Employee
     # use email sending library...
     puts "Email sent!"
   end
+
+  def give_all_raises
+    @employees.each do |employee|  # this is more concise than using a while loop
+      employee.give_annual_raise
+    end
+  end
+
+  def fire_all_employees
+    @employees.each do |employee|
+      employee.active = false
+    end
+  end
 end
 
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_report
+manager.give_all_raises
+manager.give_all_raises
+employee1.print_info
+employee2.print_info
+manager.fire_all_employees
+p employee1.active
+p employee2.active
