@@ -16,7 +16,7 @@ end
 average = average_grade(exam_one, exam_two, exam_three).to_i
 
 def letter_grade(average_grade)
-  if average_grade < 59
+  if average_grade >=0 && average_grade < 59
     puts "Grade: F"
   elsif average_grade >= 60 && average_grade <= 69
     puts "Grade: D"
@@ -28,6 +28,7 @@ def letter_grade(average_grade)
     puts "Grade: A"
   else
     puts "Grade is undefined."
+  end
 end
 
 def pass_fail(average)
