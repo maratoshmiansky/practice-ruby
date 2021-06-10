@@ -18,18 +18,14 @@ class Employee
   end
 end
 
-employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
-employee2 = Employee.new({first_name: "Danilo", last_name: "Campos", salary: 70000, active: true})
+class Manager < Employee  # the Manager class inherits all the methods and variables of the Employee class
+  def send_report
+    puts "Sending email..."
+    # use an email sending library
+    puts "Email sent!"
+  end
+end
 
-employee1.print_info
-employee2.print_info
-employee1.give_annual_raise
-employee2.give_annual_raise
-employee1.print_info
-employee2.print_info
-p employee1.first_name
-p employee1.last_name
-p employee1.salary
-p employee1.active
-employee1.active = false  # Ruby reads this as employee1.active=(false)
-p employee1.active
+manager = Manager.new({first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true})
+manager.print_info
+manager.send_report
