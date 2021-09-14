@@ -37,3 +37,18 @@ end
 
 p find_longest_word("Which is the longest word in this sentence?")
 p find_longest_word("This particular sentence should have a number of interesting words.")
+
+# reverse a string
+
+def reverse(string)
+  index = string.length - 1
+  reversed = ""
+  while index >= 0
+    reversed += string[index]
+    index -= 1
+  end
+  reversed
+end
+
+p reverse("maratical")
+p reverse("I can also handle a sentence!")
