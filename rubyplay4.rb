@@ -31,3 +31,20 @@ p movies.select { |movie| movie[:rating] < 4.0 }.sort { |movie1, movie2| movie1[
 
 p movies.select { |movie| (movie[:title].include? "b") || (movie[:title].include? "B") }
 p movies.select { |movie| (movie[:title].include? "b") || (movie[:title].include? "B") }.map { |movie| movie[:id] }
+p movies.select { |movie| movie[:title].downcase.include? "b" }.map { |movie| movie[:id] } # same result as above line
+
+# split array
+
+def split_array(array, split)
+  splits = array.length / split
+  index = 0
+  new_array = []
+  while index < array.length
+    new_array << array[index..index + split - 1]
+    index += split
+  end
+  new_array
+end
+
+p split_array([0, 1, 2, 3, 4, 5], 2)  #=> [[0, 1], [2, 3], [4, 5]]
+p split_array([0, 1, 2, 3, 4, 5], 3)  #=> [[0, 1, 2], [3, 4, 5]]
