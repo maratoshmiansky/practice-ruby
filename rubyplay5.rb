@@ -51,8 +51,17 @@ p mutation?("art", "Marat")  #=> false
 # return the sum of the numbers in the range, inclusive
 
 def sum_of_range(range)
-  
+  if range[0] == range[1]
+    range[0]
+  elsif range[0] < range[1]
+    (range[0]..range[1]).reduce(:+)
+  else
+    (range[1]..range[0]).reduce(:+)
+  end
 end
 
 p sum_of_range([1, 4])  #=> 10
 p sum_of_range([4, 1])  #=> 10
+p sum_of_range([1, 100])  #=> 5050
+p sum_of_range([10, 5])  #=> 45
+p sum_of_range([31, 31])  #=> 31
