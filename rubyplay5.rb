@@ -35,3 +35,24 @@ p items.select { |item| item[:type] == :book }.map { |item| item[:words] }.reduc
 p items.select { |item| item[:type] == :book }.reduce(0) { |sum, item| sum + item[:words] }  # does the same as the line above but without using map
 
 
+# return true if all letters in second string are contained in the first string
+
+def mutation?(string1, string2)
+  match = true
+  string2.downcase.chars.map { |letter| match = false unless string1.downcase.include?(letter) }
+  match
+end
+
+p mutation?("burly", "ruby")    #=> true
+p mutation?("burly", "python")  #=> false
+p mutation?("marat", "Marta")  #=> true
+p mutation?("art", "Marat")  #=> false
+
+# return the sum of the numbers in the range, inclusive
+
+def sum_of_range(range)
+  
+end
+
+p sum_of_range([1, 4])  #=> 10
+p sum_of_range([4, 1])  #=> 10
